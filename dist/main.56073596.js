@@ -116,7 +116,7 @@ var hf = function hf() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
 
-    var $li = $("<li>\n        <div class=\"site\">\n            <div class=\"logo\">" + node.logo[0] + "</div>\n            <div class=\"link\">" + simplifyUrl(node.url) + "</div>\n            <div class=\"close\">\n            <img src=\"/close.f83dd5e1.png\" class=\"img2\" />\n            </div>\n        </div>\n  </li>").insertBefore($lastLi);
+    var $li = $("<li>\n        <div class=\"site\">\n            <div class=\"logo\">" + node.logo[0] + "</div>\n            <div class=\"link\">" + simplifyUrl(node.url) + "</div>\n            <div class=\"close\">\n            <img src=\"/images/close.png\" class=\"img2\" />\n            </div>\n        </div>\n  </li>").insertBefore($lastLi);
     $li.on('click', function () {
       window.open(node.url, '_self');
     });
@@ -153,4 +153,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.1eb2ed9e.map
+//# sourceMappingURL=main.56073596.map
