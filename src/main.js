@@ -22,7 +22,7 @@ const hf = () => {
             <div class="logo">${node.logo[0]}</div>
             <div class="link">${simplifyUrl(node.url)}</div>
             <div class="close">
-            <img src="/close.f83dd5e1.png" class="img2" />
+            <img src="/images/close.png" class="img2" />
             </div>
         </div>
   </li>`).insertBefore($lastLi);
