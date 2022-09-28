@@ -13,6 +13,9 @@ const simplifyUrl=(url)=>{
       .replace('www.','')
       .replace(/\/.*/,'')
 }
+const addClose=()=>{
+  $('#close').append(`<img src="/images/close.png`)
+}
 const hf = () => {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach((node,index) => {
@@ -22,10 +25,11 @@ const hf = () => {
             <div class="logo">${node.logo[0]}</div>
             <div class="link">${simplifyUrl(node.url)}</div>
             <div class="close">
-            <img src="/close.6c9df2cb.png" class="img2" />
+ 
             </div>
         </div>
   </li>`).insertBefore($lastLi);
+      addClose()
       $li.on('click',()=>{
         window.open(node.url,'_self')
       })
