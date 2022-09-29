@@ -104,6 +104,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"epB2":[function(require,module,exports) {
+
+
 var $siteList = $(".siteList");
 var $lastLi = $siteList.find("li.last");
 var x = localStorage.getItem("x");
@@ -112,15 +114,12 @@ var hashMap = xObject || [{ logo: "A", url: "https://www.acfun.cn" }, { logo: "B
 var simplifyUrl = function simplifyUrl(url) {
   return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, '');
 };
-var addClose = function addClose() {
-  $('#close').append("<img src=\"/images/close.png");
-};
 var hf = function hf() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
 
-    var $li = $("<li>\n        <div class=\"site\">\n            <div class=\"logo\">" + node.logo[0] + "</div>\n            <div class=\"link\">" + simplifyUrl(node.url) + "</div>\n            <div class=\"close\">\n \n            </div>\n        </div>\n  </li>").insertBefore($lastLi);
-    addClose();
+    var $li = $("<li>\n        <div class=\"site\">\n            <div class=\"logo\">" + node.logo[0] + "</div>\n            <div class=\"link\">" + simplifyUrl(node.url) + "</div>\n            <div class=\"close\">\n              <svg class=\"icon\" aria-hidden=\"true\">\n                <use xlink:href=\"#icon-close\"></use>\n            </svg>\n            </div>\n        </div>\n  </li>").insertBefore($lastLi);
+
     $li.on('click', function () {
       window.open(node.url, '_self');
     });
@@ -132,6 +131,7 @@ var hf = function hf() {
   });
 };
 hf();
+
 $(".addButton").on("click", function () {
   var url = window.prompt("输入新增网址");
   if (url.indexOf("http") !== 0) {
@@ -142,6 +142,7 @@ $(".addButton").on("click", function () {
     url: url
   });
   hf();
+  // addClose()
 });
 window.onbeforeunload = function () {
   var string = JSON.stringify(hashMap);
@@ -157,4 +158,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.e924139c.map
+//# sourceMappingURL=c/main.c48044fe.map

@@ -1,3 +1,5 @@
+
+
 const $siteList = $(".siteList");
 const $lastLi = $siteList.find("li.last");
 const x = localStorage.getItem("x");
@@ -13,9 +15,6 @@ const simplifyUrl=(url)=>{
       .replace('www.','')
       .replace(/\/.*/,'')
 }
-const addClose=()=>{
-  $('#close').append(`<img src="/images/close.png`)
-}
 const hf = () => {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach((node,index) => {
@@ -25,11 +24,14 @@ const hf = () => {
             <div class="logo">${node.logo[0]}</div>
             <div class="link">${simplifyUrl(node.url)}</div>
             <div class="close">
- 
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-close"></use>
+            </svg>
             </div>
         </div>
   </li>`).insertBefore($lastLi);
-      addClose()
+
+
       $li.on('click',()=>{
         window.open(node.url,'_self')
       })
@@ -41,6 +43,7 @@ const hf = () => {
   });
 };
 hf();
+
 $(".addButton").on("click", () => {
   let url = window.prompt("输入新增网址");
   if (url.indexOf("http") !== 0) {
@@ -51,6 +54,7 @@ $(".addButton").on("click", () => {
     url: url,
   });
   hf();
+  // addClose()
 });
 window.onbeforeunload = () => {
   const string = JSON.stringify(hashMap);
@@ -63,5 +67,4 @@ $(document).on(`keypress`,(e)=>{
       window.open(hashMap[i].url,'_self')
     }
   }
-
 })
